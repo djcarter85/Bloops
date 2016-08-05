@@ -29,5 +29,10 @@
                 Y = v.Y * factor
             };
         }
+
+        public double DistanceTo(Vector other)
+        {
+            return Math.Sqrt(Math.Pow(this.X - other.X, 2) + Math.Pow(this.Y - other.Y, 2));
+        }
     }
 }

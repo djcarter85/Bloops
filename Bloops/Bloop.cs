@@ -15,7 +15,7 @@
         public Vector Location { get; private set; }
         public double Radius { get; private set; }
 
-        public int Health { get; private set; } = 100;
+        public int Health { get; set; } = 100;
 
         public bool Dead
         {
@@ -38,6 +38,17 @@
             this.Location += this.velocity;
 
             this.Health--;
+        }
+
+        public bool Eat(Vector food)
+        {
+            if (this.Location.DistanceTo(food) <= this.Radius)
+            {
+                this.Health += 100;
+                return true;
+            }
+
+            return false;
         }
     }
 }

@@ -9,7 +9,7 @@
         public const int Height = 250;
 
         private List<Bloop> bloops;
-        private List<Vector> food;
+        private List<Vector> foods;
 
         public World(int numBloops, int numFood)
         {
@@ -17,7 +17,7 @@
                 .Select(i => RandomBloop())
                 .ToList();
 
-            this.food = Enumerable.Repeat(0, numFood)
+            this.foods = Enumerable.Repeat(0, numFood)
                 .Select(i => RandomFood())
                 .ToList();
         }
@@ -27,9 +27,9 @@
             get { return this.bloops; }
         }
 
-        public IEnumerable<Vector> Food
+        public IEnumerable<Vector> Foods
         {
-            get { return this.food; }
+            get { return this.foods; }
         }
 
         public void Update()
@@ -40,6 +40,14 @@
             }
 
             this.bloops.RemoveAll(b => b.Dead);
+
+            foreach (Vector food in this.foods.ToArray())
+            {
+                if (this.bloops.Any(b => b.Eat(food)))
+                {
+                    this.foods.Remove(food);
+                }
+            }
         }
 
         private static Bloop RandomBloop()

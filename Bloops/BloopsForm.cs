@@ -59,7 +59,7 @@
                 DrawBloop(bloop, e.Graphics);
             }
 
-            foreach (Vector food in this.world.Food)
+            foreach (Vector food in this.world.Foods)
             {
                 DrawFood(food, e.Graphics);
             }
