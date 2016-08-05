@@ -2,6 +2,7 @@
 {
     using System;
     using System.Drawing;
+    using System.Linq;
     using System.Windows.Forms;
 
     public partial class BloopsForm : Form
@@ -20,7 +21,7 @@
         {
             int colour = Math.Max(255 - bloop.Health * 2, 0);
 
-            using (SolidBrush brush = new SolidBrush(Color.FromArgb(100,colour, colour, colour)))
+            using (SolidBrush brush = new SolidBrush(Color.FromArgb(100, colour, colour, colour)))
             {
                 graphics.FillEllipse(
                     brush,
@@ -50,6 +51,10 @@
         {
             this.world.Update();
             this.map.Invalidate();
+            this.statusLabel.Text = string.Format(
+                "Bloops: {0}\r\nMax health: {1}",
+                this.world.Bloops.Count(),
+                this.world.Bloops.Max(b => b.Health));
         }
 
         private void Map_Paint(object sender, PaintEventArgs e)

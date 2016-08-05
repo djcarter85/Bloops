@@ -32,6 +32,7 @@
             this.map = new System.Windows.Forms.PictureBox();
             this.timer = new System.Windows.Forms.Timer(this.components);
             this.startButton = new System.Windows.Forms.Button();
+            this.statusLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.map)).BeginInit();
             this.SuspendLayout();
             // 
@@ -61,17 +62,27 @@
             this.startButton.UseVisualStyleBackColor = true;
             this.startButton.Click += new System.EventHandler(this.StartButton_Click);
             // 
+            // bloopCountLabel
+            // 
+            this.statusLabel.AutoSize = true;
+            this.statusLabel.Location = new System.Drawing.Point(12, 67);
+            this.statusLabel.Name = "bloopCountLabel";
+            this.statusLabel.Size = new System.Drawing.Size(0, 17);
+            this.statusLabel.TabIndex = 3;
+            // 
             // BloopsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(968, 600);
+            this.Controls.Add(this.statusLabel);
             this.Controls.Add(this.startButton);
             this.Controls.Add(this.map);
             this.Name = "BloopsForm";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.map)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -80,6 +91,7 @@
         private System.Windows.Forms.PictureBox map;
         private System.Windows.Forms.Timer timer;
         private System.Windows.Forms.Button startButton;
+        private System.Windows.Forms.Label statusLabel;
     }
 }
 
