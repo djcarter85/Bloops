@@ -7,7 +7,7 @@
 
     public partial class BloopsForm : Form
     {
-        private World world = new World(10, 100);
+        private World world;
 
         public BloopsForm()
         {
@@ -68,19 +68,23 @@
 
         private void Map_Paint(object sender, PaintEventArgs e)
         {
-            foreach (Bloop bloop in this.world.Bloops)
+            if (this.world != null)
             {
-                DrawBloop(bloop, e.Graphics);
-            }
+                foreach (Bloop bloop in this.world.Bloops)
+                {
+                    DrawBloop(bloop, e.Graphics);
+                }
 
-            foreach (Vector food in this.world.Foods)
-            {
-                DrawFood(food, e.Graphics);
+                foreach (Vector food in this.world.Foods)
+                {
+                    DrawFood(food, e.Graphics);
+                }
             }
         }
 
         private void StartButton_Click(object sender, EventArgs e)
         {
+            this.world = new World((int)this.bloopsUpDown.Value, (int)this.foodUpDown.Value);
             this.timer.Start();
         }
 
