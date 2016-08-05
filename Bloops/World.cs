@@ -55,13 +55,7 @@
 
         private static Bloop RandomBloop()
         {
-            Vector initialLocation = new Vector
-            {
-                X = Helpers.NextInt(-Width, Width),
-                Y = Helpers.NextInt(-Height, Height)
-            };
-
-            return new Bloop(Helpers.NextInt(MinSize, MaxSize), Helpers.NextRandom(1, 5), initialLocation);
+            return new Bloop(Helpers.NextInt(MinSize, MaxSize), Helpers.NextRandom(1, 5), default(Vector));
         }
 
         private static Vector RandomFood()

@@ -5,7 +5,7 @@
         private Vector velocity;
         private double maxSpeed;
 
-        public Bloop(double radius, double maxSpeed, Vector initialPosition)
+        public Bloop(double radius, double maxSpeed, Vector initialPosition = default(Vector))
         {
             this.Radius = radius;
             this.maxSpeed = maxSpeed;
