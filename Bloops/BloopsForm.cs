@@ -6,7 +6,7 @@
 
     public partial class BloopsForm : Form
     {
-        private World world = new World(10, 4);
+        private World world = new World(10, 100);
 
         public BloopsForm()
         {

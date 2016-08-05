@@ -8,6 +8,9 @@
         public const int Width = 250;
         public const int Height = 250;
 
+        private const int MinSize = 2;
+        private const int MaxSize = 30;
+
         private List<Bloop> bloops;
         private List<Vector> foods;
 
@@ -58,7 +61,7 @@
                 Y = Helpers.NextInt(-Height, Height)
             };
 
-            return new Bloop(Helpers.NextInt(2, 10), Helpers.NextRandom(1, 5), initialLocation);
+            return new Bloop(Helpers.NextInt(MinSize, MaxSize), Helpers.NextRandom(1, 5), initialLocation);
         }
 
         private static Vector RandomFood()
