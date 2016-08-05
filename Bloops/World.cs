@@ -9,17 +9,27 @@
         public const int Height = 250;
 
         private List<Bloop> bloops;
+        private List<Vector> food;
 
-        public World(int numBloops)
+        public World(int numBloops, int numFood)
         {
-            this.bloops = Enumerable.Repeat(0, 10)
+            this.bloops = Enumerable.Repeat(0, numBloops)
                 .Select(i => RandomBloop())
+                .ToList();
+
+            this.food = Enumerable.Repeat(0, numFood)
+                .Select(i => RandomFood())
                 .ToList();
         }
 
         public IEnumerable<Bloop> Bloops
         {
             get { return this.bloops; }
+        }
+
+        public IEnumerable<Vector> Food
+        {
+            get { return this.food; }
         }
 
         public void Update()
@@ -41,6 +51,15 @@
             };
 
             return new Bloop(Helpers.NextInt(2, 10), Helpers.NextRandom(1, 5), initialLocation);
+        }
+
+        private static Vector RandomFood()
+        {
+            return new Vector
+            {
+                X = Helpers.NextInt(-Width, Width),
+                Y = Helpers.NextInt(-Height, Height)
+            };
         }
     }
 }

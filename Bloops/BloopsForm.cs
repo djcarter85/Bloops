@@ -6,7 +6,7 @@
 
     public partial class BloopsForm : Form
     {
-        private World world = new World(10);
+        private World world = new World(10, 4);
 
         public BloopsForm()
         {
@@ -30,6 +30,20 @@
             }
         }
 
+        private static void DrawFood(Vector food, Graphics graphics)
+        {
+            using (Pen pen = new Pen(Brushes.Blue))
+            {
+                graphics.DrawRectangle(
+                    pen,
+                    new Rectangle(
+                        Convert.ToInt32(food.X - 1) + World.Width,
+                        Convert.ToInt32(food.Y - 1) + World.Height,
+                        3,
+                        3));
+            }
+        }
+
         private void TimeStep()
         {
             this.world.Update();
@@ -41,6 +55,11 @@
             foreach (Bloop bloop in this.world.Bloops)
             {
                 DrawBloop(bloop, e.Graphics);
+            }
+
+            foreach (Vector food in this.world.Food)
+            {
+                DrawFood(food, e.Graphics);
             }
         }
 
