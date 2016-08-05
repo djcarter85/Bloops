@@ -55,7 +55,7 @@
 
         private static Bloop RandomBloop()
         {
-            return new Bloop(Helpers.NextInt(MinSize, MaxSize), Helpers.NextRandom(1, 5), default(Vector));
+            return new Bloop(Dna.Random(), default(Vector));
         }
 
         private static Vector RandomFood()

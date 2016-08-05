@@ -3,12 +3,14 @@
     class Bloop
     {
         private Vector velocity;
-        private double maxSpeed;
+        private readonly double maxSpeed;
+        private readonly Dna dna;
 
-        public Bloop(double radius, double maxSpeed, Vector initialPosition = default(Vector))
+        public Bloop(Dna dna, Vector initialPosition = default(Vector))
         {
-            this.Radius = radius;
-            this.maxSpeed = maxSpeed;
+            this.dna = dna;
+            this.Radius = dna.Gene * 30;
+            this.maxSpeed = 10 * (1 - dna.Gene);
             this.Location = initialPosition;
         }
 
