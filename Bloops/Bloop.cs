@@ -2,6 +2,9 @@
 {
     class Bloop
     {
+        private const double ReproductionRate = 0.001;
+        private const double MutationRate = 0.01;
+
         private Vector velocity;
         private readonly double maxSpeed;
         private readonly Dna dna;
@@ -51,6 +54,23 @@
             }
 
             return false;
+        }
+
+        public Bloop Reproduce()
+        {
+            if (Helpers.EventOccurs(ReproductionRate))
+            {
+                Dna childDna = dna.Copy();
+
+                if (Helpers.EventOccurs(MutationRate))
+                {
+                    childDna.Mutate();
+                }
+
+                return new Bloop(childDna, initialPosition: this.Location);
+            }
+
+            return null;
         }
     }
 }

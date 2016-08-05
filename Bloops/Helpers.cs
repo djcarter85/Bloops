@@ -15,5 +15,10 @@
         {
             return random.Next(min, max);
         }
+
+        public static bool EventOccurs(double rate)
+        {
+            return random.NextDouble() < rate;
+        }
     }
 }

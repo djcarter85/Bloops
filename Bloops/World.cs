@@ -51,6 +51,16 @@
                     this.foods.Remove(food);
                 }
             }
+
+            foreach (Bloop bloop in this.bloops.ToArray())
+            {
+                Bloop child = bloop.Reproduce();
+
+                if (child != null)
+                {
+                    this.bloops.Add(child);
+                }
+            }
         }
 
         private static Bloop RandomBloop()
