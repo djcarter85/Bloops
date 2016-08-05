@@ -51,10 +51,19 @@
         {
             this.world.Update();
             this.map.Invalidate();
-            this.statusLabel.Text = string.Format(
-                "Bloops: {0}\r\nMax health: {1}",
-                this.world.Bloops.Count(),
-                this.world.Bloops.Max(b => b.Health));
+
+            if (!this.world.Bloops.Any())
+            {
+                this.timer.Stop();
+                MessageBox.Show("All dead!");
+            }
+            else
+            {
+                this.statusLabel.Text = string.Format(
+                    "Bloops: {0}\r\nMax health: {1}",
+                    this.world.Bloops.Count(),
+                    this.world.Bloops.Max(b => b.Health));
+            }
         }
 
         private void Map_Paint(object sender, PaintEventArgs e)
