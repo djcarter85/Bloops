@@ -4,7 +4,6 @@
     {
         private Vector velocity;
         private double maxSpeed;
-        private int health = 100;
 
         public Bloop(double radius, double maxSpeed, Vector initialPosition)
         {
@@ -16,9 +15,11 @@
         public Vector Location { get; private set; }
         public double Radius { get; private set; }
 
+        public int Health { get; private set; } = 100;
+
         public bool Dead
         {
-            get { return this.health <= 0; }
+            get { return this.Health <= 0; }
         }
 
         public void Update()
@@ -36,7 +37,7 @@
 
             this.Location += this.velocity;
 
-            this.health--;
+            this.Health--;
         }
     }
 }

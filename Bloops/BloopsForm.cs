@@ -18,10 +18,12 @@
 
         private static void DrawBloop(Bloop bloop, Graphics graphics)
         {
-            using (Pen pen = new Pen(Brushes.Red))
+            int colour = Math.Max(255 - bloop.Health * 2, 0);
+
+            using (SolidBrush brush = new SolidBrush(Color.FromArgb(100,colour, colour, colour)))
             {
-                graphics.DrawEllipse(
-                    pen,
+                graphics.FillEllipse(
+                    brush,
                     new Rectangle(
                         Convert.ToInt32(bloop.Location.X - bloop.Radius) + World.Width,
                         Convert.ToInt32(bloop.Location.Y - bloop.Radius) + World.Height,
