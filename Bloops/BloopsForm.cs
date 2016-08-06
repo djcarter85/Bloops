@@ -84,7 +84,12 @@
 
         private void StartButton_Click(object sender, EventArgs e)
         {
-            this.world = new World((int)this.bloopsUpDown.Value, (int)this.foodUpDown.Value);
+            this.world = new World(
+                (int)this.bloopsUpDown.Value,
+                (int)this.foodUpDown.Value, 
+                (double)this.reproductionRateUpDown.Value, 
+                (double)this.mutationRateUpDown.Value);
+
             this.timer.Start();
         }
 
