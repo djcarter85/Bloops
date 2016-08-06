@@ -20,12 +20,13 @@
             this.mutationRate = mutationRate;
 
             this.Location = initialPosition;
+            this.Health = 100;
         }
 
         public Vector Location { get; private set; }
         public double Radius { get; private set; }
 
-        public int Health { get; set; } = 100;
+        public int Health { get; private set; }
 
         public bool Dead
         {
@@ -40,10 +41,7 @@
                 Y = Helpers.NextRandom(-5, 5)
             };
 
-            if (this.velocity.Length > this.maxSpeed)
-            {
-                this.velocity *= this.maxSpeed / this.velocity.Length;
-            }
+            this.velocity.Limit(this.maxSpeed);
 
             this.Location += this.velocity;
 

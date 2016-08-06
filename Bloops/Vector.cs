@@ -34,5 +34,13 @@
         {
             return Math.Sqrt(Math.Pow(this.X - other.X, 2) + Math.Pow(this.Y - other.Y, 2));
         }
+
+        public void Limit(double maxLength)
+        {
+            if (this.Length > maxLength)
+            {
+                this *= maxLength / this.Length;
+            }
+        }
     }
 }
