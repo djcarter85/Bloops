@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.Label bloopNumberLabel;
-            System.Windows.Forms.Label startingFoodLabel;
+            System.Windows.Forms.Label foodLabel;
             System.Windows.Forms.Label reproductionRateLabel;
             System.Windows.Forms.Label mutationRateLabel;
             this.map = new System.Windows.Forms.PictureBox();
@@ -42,7 +42,7 @@
             this.reproductionRateUpDown = new System.Windows.Forms.NumericUpDown();
             this.mutationRateUpDown = new System.Windows.Forms.NumericUpDown();
             bloopNumberLabel = new System.Windows.Forms.Label();
-            startingFoodLabel = new System.Windows.Forms.Label();
+            foodLabel = new System.Windows.Forms.Label();
             reproductionRateLabel = new System.Windows.Forms.Label();
             mutationRateLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.map)).BeginInit();
@@ -61,14 +61,14 @@
             bloopNumberLabel.TabIndex = 4;
             bloopNumberLabel.Text = "Starting bloops:";
             // 
-            // startingFoodLabel
+            // foodLabel
             // 
-            startingFoodLabel.AutoSize = true;
-            startingFoodLabel.Location = new System.Drawing.Point(12, 205);
-            startingFoodLabel.Name = "startingFoodLabel";
-            startingFoodLabel.Size = new System.Drawing.Size(93, 17);
-            startingFoodLabel.TabIndex = 6;
-            startingFoodLabel.Text = "Starting food:";
+            foodLabel.AutoSize = true;
+            foodLabel.Location = new System.Drawing.Point(12, 205);
+            foodLabel.Name = "foodLabel";
+            foodLabel.Size = new System.Drawing.Size(44, 17);
+            foodLabel.TabIndex = 6;
+            foodLabel.Text = "Food:";
             // 
             // map
             // 
@@ -197,7 +197,7 @@
             this.Controls.Add(this.reproductionRateUpDown);
             this.Controls.Add(reproductionRateLabel);
             this.Controls.Add(this.foodUpDown);
-            this.Controls.Add(startingFoodLabel);
+            this.Controls.Add(foodLabel);
             this.Controls.Add(this.bloopsUpDown);
             this.Controls.Add(bloopNumberLabel);
             this.Controls.Add(this.statusLabel);

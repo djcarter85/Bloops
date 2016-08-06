@@ -55,6 +55,7 @@
                 if (this.bloops.Any(b => b.Eat(food)))
                 {
                     this.foods.Remove(food);
+                    this.foods.Add(RandomFood());
                 }
             }
 
