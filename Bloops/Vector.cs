@@ -42,5 +42,32 @@
                 this *= maxLength / this.Length;
             }
         }
+
+        public Vector CheckEdges(int maxX, int maxY)
+        {
+            double newX = this.X;
+
+            if (newX > maxX)
+            {
+                newX -= 2 * maxX;
+            }
+            else if (newX < -maxX)
+            {
+                newX += 2 * maxX;
+            }
+
+            double newY = this.Y;
+
+            if (newY > maxY)
+            {
+                newY -= 2 * maxY;
+            }
+            else if (newY < -maxY)
+            {
+                newY += 2 * maxY;
+            }
+
+            return new Vector { X = newX, Y = newY };
+        }
     }
 }

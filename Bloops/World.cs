@@ -45,7 +45,7 @@
         {
             foreach (Bloop bloop in this.bloops)
             {
-                bloop.Update();
+                bloop.Update(Width, Height);
             }
 
             this.bloops.RemoveAll(b => b.Dead);

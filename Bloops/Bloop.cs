@@ -33,7 +33,7 @@
             get { return this.Health <= 0; }
         }
 
-        public void Update()
+        public void Update(int maxX, int maxY)
         {
             this.velocity += new Vector
             {
@@ -44,6 +44,8 @@
             this.velocity.Limit(this.maxSpeed);
 
             this.Location += this.velocity;
+
+            this.Location = this.Location.CheckEdges(maxX, maxY);
 
             this.Health--;
         }
