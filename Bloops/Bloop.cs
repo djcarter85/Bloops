@@ -52,7 +52,7 @@
         {
             if (this.Location.DistanceTo(food) <= this.Radius)
             {
-                this.Health += 100;
+                this.Health += this.parameters.FoodHealth;
                 return true;
             }
 

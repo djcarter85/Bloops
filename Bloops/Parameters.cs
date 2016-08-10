@@ -7,14 +7,22 @@
         private readonly double reproductionRate;
         private readonly double mutationRate;
         private readonly int startingHealth;
+        private readonly int foodHealth;
 
-        public Parameters(int startingBloops, int numFood, double reproductionRate, double mutationRate, int startingHealth)
+        public Parameters(
+            int startingBloops, 
+            int numFood, 
+            double reproductionRate, 
+            double mutationRate,
+            int startingHealth,
+            int foodHealth)
         {
             this.startingBloops = startingBloops;
             this.numFood = numFood;
             this.reproductionRate = reproductionRate;
             this.mutationRate = mutationRate;
             this.startingHealth = startingHealth;
+            this.foodHealth = foodHealth;
         }
 
         public int StartingBloops
@@ -40,6 +48,11 @@
         public int StartingHealth
         {
             get { return this.startingHealth; }
+        }
+
+        public int FoodHealth
+        {
+            get { return this.foodHealth; }
         }
     }
 }

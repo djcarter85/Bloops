@@ -89,7 +89,8 @@
                 (int)this.foodUpDown.Value, 
                 (double)this.reproductionRateUpDown.Value, 
                 (double)this.mutationRateUpDown.Value,
-                (int)this.startingHealthUpDown.Value);
+                (int)this.startingHealthUpDown.Value,
+                (int)this.foodHealthUpDown.Value);
                 
             this.world = new World(parameters);
 
