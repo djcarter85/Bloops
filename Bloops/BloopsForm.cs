@@ -21,15 +21,20 @@
         {
             int colour = Math.Max(255 - bloop.Health * 2, 0);
 
+            Rectangle rect = new Rectangle(
+                Convert.ToInt32(bloop.Location.X - bloop.Radius) + World.Width,
+                Convert.ToInt32(bloop.Location.Y - bloop.Radius) + World.Height,
+                Convert.ToInt32(2 * bloop.Radius),
+                Convert.ToInt32(2 * bloop.Radius));
+
             using (SolidBrush brush = new SolidBrush(Color.FromArgb(100, colour, colour, colour)))
             {
-                graphics.FillEllipse(
-                    brush,
-                    new Rectangle(
-                        Convert.ToInt32(bloop.Location.X - bloop.Radius) + World.Width,
-                        Convert.ToInt32(bloop.Location.Y - bloop.Radius) + World.Height,
-                        Convert.ToInt32(2 * bloop.Radius),
-                        Convert.ToInt32(2 * bloop.Radius)));
+                graphics.FillEllipse(brush, rect);
+            }
+
+            using (SolidBrush brush = new SolidBrush(Color.Black))
+            {
+                graphics.DrawString(bloop.Health.ToString(), new Font("Verdana", 10), brush, rect.Location);
             }
         }
 
@@ -86,12 +91,12 @@
         {
             Parameters parameters = new Parameters(
                 (int)this.bloopsUpDown.Value,
-                (int)this.foodUpDown.Value, 
-                (double)this.reproductionRateUpDown.Value, 
+                (int)this.foodUpDown.Value,
+                (double)this.reproductionRateUpDown.Value,
                 (double)this.mutationRateUpDown.Value,
                 (int)this.startingHealthUpDown.Value,
                 (int)this.foodHealthUpDown.Value);
-                
+
             this.world = new World(parameters);
 
             this.timer.Start();
