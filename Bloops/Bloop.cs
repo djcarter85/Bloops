@@ -18,7 +18,7 @@
             this.parameters = parameters;
 
             this.Location = initialPosition;
-            this.Health = 100;
+            this.Health = this.parameters.StartingHealth;
         }
 
         public Vector Location { get; private set; }
