@@ -14,19 +14,17 @@
         private List<Bloop> bloops;
         private List<Vector> foods;
 
-        private double reproductionRate;
-        private double mutationRate;
+        private readonly Parameters parameters;
 
-        public World(int numBloops, int numFood, double reproductionRate, double mutationRate)
+        public World(Parameters parameters)
         {
-            this.reproductionRate = reproductionRate;
-            this.mutationRate = mutationRate;
+            this.parameters = parameters;
 
-            this.bloops = Enumerable.Repeat(0, numBloops)
+            this.bloops = Enumerable.Repeat(0, this.parameters.StartingBloops)
                 .Select(i => this.RandomBloop())
                 .ToList();
 
-            this.foods = Enumerable.Repeat(0, numFood)
+            this.foods = Enumerable.Repeat(0, this.parameters.NumFood)
                 .Select(i => RandomFood())
                 .ToList();
         }
@@ -72,7 +70,7 @@
 
         private Bloop RandomBloop()
         {
-            return new Bloop(Dna.Random(), this.reproductionRate, this.mutationRate);
+            return new Bloop(Dna.Random(), this.parameters);
         }
 
         private static Vector RandomFood()

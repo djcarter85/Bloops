@@ -2,22 +2,20 @@
 {
     class Bloop
     {
-        private readonly double reproductionRate;
-        private readonly double mutationRate;
+        private readonly Parameters parameters;
 
         private readonly double maxSpeed;
         private readonly Dna dna;
 
         private Vector velocity;
 
-        public Bloop(Dna dna, double reproductionRate, double mutationRate, Vector initialPosition = default(Vector))
+        public Bloop(Dna dna, Parameters parameters, Vector initialPosition = default(Vector))
         {
             this.dna = dna;
             this.Radius = dna.Gene * 30;
             this.maxSpeed = 10 * (1 - dna.Gene);
 
-            this.reproductionRate = reproductionRate;
-            this.mutationRate = mutationRate;
+            this.parameters = parameters;
 
             this.Location = initialPosition;
             this.Health = 100;
@@ -63,16 +61,16 @@
 
         public Bloop Reproduce()
         {
-            if (Helpers.EventOccurs(this.reproductionRate))
+            if (Helpers.EventOccurs(this.parameters.ReproductionRate))
             {
                 Dna childDna = dna.Copy();
 
-                if (Helpers.EventOccurs(this.mutationRate))
+                if (Helpers.EventOccurs(this.parameters.MutationRate))
                 {
                     childDna.Mutate();
                 }
 
-                return new Bloop(childDna, this.reproductionRate, this.mutationRate, initialPosition: this.Location);
+                return new Bloop(childDna, this.parameters, initialPosition: this.Location);
             }
 
             return null;

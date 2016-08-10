@@ -55,6 +55,7 @@
     </Compile>
     <Compile Include="Dna.cs" />
     <Compile Include="Helpers.cs" />
+    <Compile Include="Parameters.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Vector.cs" />
