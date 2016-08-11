@@ -35,6 +35,7 @@
             System.Windows.Forms.Label mutationRateLabel;
             System.Windows.Forms.Label startingHealthLabel;
             System.Windows.Forms.Label foodHealthLabel;
+            System.Windows.Forms.Label reproductionLimitLabel;
             this.map = new System.Windows.Forms.PictureBox();
             this.timer = new System.Windows.Forms.Timer(this.components);
             this.startButton = new System.Windows.Forms.Button();
@@ -45,12 +46,14 @@
             this.mutationRateUpDown = new System.Windows.Forms.NumericUpDown();
             this.startingHealthUpDown = new System.Windows.Forms.NumericUpDown();
             this.foodHealthUpDown = new System.Windows.Forms.NumericUpDown();
+            this.reproductionLimitUpDown = new System.Windows.Forms.NumericUpDown();
             bloopNumberLabel = new System.Windows.Forms.Label();
             foodLabel = new System.Windows.Forms.Label();
             reproductionRateLabel = new System.Windows.Forms.Label();
             mutationRateLabel = new System.Windows.Forms.Label();
             startingHealthLabel = new System.Windows.Forms.Label();
             foodHealthLabel = new System.Windows.Forms.Label();
+            reproductionLimitLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.map)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bloopsUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.foodUpDown)).BeginInit();
@@ -58,6 +61,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.mutationRateUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.startingHealthUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.foodHealthUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.reproductionLimitUpDown)).BeginInit();
             this.SuspendLayout();
             // 
             // bloopNumberLabel
@@ -247,12 +251,40 @@
             foodHealthLabel.TabIndex = 14;
             foodHealthLabel.Text = "Food health value:";
             // 
+            // reproductionLimitUpDown
+            // 
+            this.reproductionLimitUpDown.Location = new System.Drawing.Point(18, 548);
+            this.reproductionLimitUpDown.Maximum = new decimal(new int[] {
+            500,
+            0,
+            0,
+            0});
+            this.reproductionLimitUpDown.Name = "reproductionLimitUpDown";
+            this.reproductionLimitUpDown.Size = new System.Drawing.Size(76, 22);
+            this.reproductionLimitUpDown.TabIndex = 17;
+            this.reproductionLimitUpDown.Value = new decimal(new int[] {
+            100,
+            0,
+            0,
+            0});
+            // 
+            // reproductionLimitLabel
+            // 
+            reproductionLimitLabel.AutoSize = true;
+            reproductionLimitLabel.Location = new System.Drawing.Point(15, 528);
+            reproductionLimitLabel.Name = "reproductionLimitLabel";
+            reproductionLimitLabel.Size = new System.Drawing.Size(125, 17);
+            reproductionLimitLabel.TabIndex = 16;
+            reproductionLimitLabel.Text = "Reproduction limit:";
+            // 
             // BloopsForm
             // 
             this.AcceptButton = this.startButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(968, 600);
+            this.Controls.Add(this.reproductionLimitUpDown);
+            this.Controls.Add(reproductionLimitLabel);
             this.Controls.Add(this.foodHealthUpDown);
             this.Controls.Add(foodHealthLabel);
             this.Controls.Add(this.startingHealthUpDown);
@@ -277,6 +309,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.mutationRateUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.startingHealthUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.foodHealthUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.reproductionLimitUpDown)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -294,6 +327,7 @@
         private System.Windows.Forms.NumericUpDown mutationRateUpDown;
         private System.Windows.Forms.NumericUpDown startingHealthUpDown;
         private System.Windows.Forms.NumericUpDown foodHealthUpDown;
+        private System.Windows.Forms.NumericUpDown reproductionLimitUpDown;
     }
 }
 

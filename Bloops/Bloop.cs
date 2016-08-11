@@ -61,7 +61,7 @@
 
         public Bloop Reproduce()
         {
-            if (Helpers.EventOccurs(this.parameters.ReproductionRate))
+            if (this.Health >= this.parameters.ReproductionLimit && Helpers.EventOccurs(this.parameters.ReproductionRate))
             {
                 Dna childDna = dna.Copy();
 
