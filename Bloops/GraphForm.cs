@@ -19,7 +19,7 @@
 
         private void GoButton_Click(object sender, EventArgs e)
         {
-            this.neuron = Neuron.Random(3);
+            this.neuron = Neuron.Random(2);
             this.graph.Invalidate();
             this.weightsLabel.Text = string.Join("\r\n", this.neuron.Weights);
         }

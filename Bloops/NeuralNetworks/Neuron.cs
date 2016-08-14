@@ -20,7 +20,7 @@
 
         public static Neuron Random(int numInputs)
         {
-            return new Neuron(Enumerable.Repeat(0, numInputs).Select(i => Helpers.NextRandom(-1, 1)).ToArray());
+            return new Neuron(Enumerable.Repeat(0, numInputs + 1).Select(i => Helpers.NextRandom(-1, 1)).ToArray());
         }
 
         public double FeedForward(double[] inputs)
