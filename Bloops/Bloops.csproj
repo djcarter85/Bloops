@@ -67,6 +67,7 @@
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="NeuralNetworks\NeuralNetwork.cs" />
     <Compile Include="NeuralNetworks\Neuron.cs" />
     <Compile Include="NeuralNetworks\NeuronLayer.cs" />
     <Compile Include="Parameters.cs" />
