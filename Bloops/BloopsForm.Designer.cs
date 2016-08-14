@@ -47,6 +47,7 @@
             this.startingHealthUpDown = new System.Windows.Forms.NumericUpDown();
             this.foodHealthUpDown = new System.Windows.Forms.NumericUpDown();
             this.reproductionLimitUpDown = new System.Windows.Forms.NumericUpDown();
+            this.stepButton = new System.Windows.Forms.Button();
             bloopNumberLabel = new System.Windows.Forms.Label();
             foodLabel = new System.Windows.Forms.Label();
             reproductionRateLabel = new System.Windows.Forms.Label();
@@ -99,6 +100,33 @@
             mutationRateLabel.Size = new System.Drawing.Size(95, 17);
             mutationRateLabel.TabIndex = 10;
             mutationRateLabel.Text = "Mutation rate:";
+            // 
+            // startingHealthLabel
+            // 
+            startingHealthLabel.AutoSize = true;
+            startingHealthLabel.Location = new System.Drawing.Point(12, 398);
+            startingHealthLabel.Name = "startingHealthLabel";
+            startingHealthLabel.Size = new System.Drawing.Size(104, 17);
+            startingHealthLabel.TabIndex = 12;
+            startingHealthLabel.Text = "Starting health:";
+            // 
+            // foodHealthLabel
+            // 
+            foodHealthLabel.AutoSize = true;
+            foodHealthLabel.Location = new System.Drawing.Point(15, 464);
+            foodHealthLabel.Name = "foodHealthLabel";
+            foodHealthLabel.Size = new System.Drawing.Size(125, 17);
+            foodHealthLabel.TabIndex = 14;
+            foodHealthLabel.Text = "Food health value:";
+            // 
+            // reproductionLimitLabel
+            // 
+            reproductionLimitLabel.AutoSize = true;
+            reproductionLimitLabel.Location = new System.Drawing.Point(15, 528);
+            reproductionLimitLabel.Name = "reproductionLimitLabel";
+            reproductionLimitLabel.Size = new System.Drawing.Size(125, 17);
+            reproductionLimitLabel.TabIndex = 16;
+            reproductionLimitLabel.Text = "Reproduction limit:";
             // 
             // map
             // 
@@ -216,15 +244,6 @@
             0,
             0});
             // 
-            // startingHealthLabel
-            // 
-            startingHealthLabel.AutoSize = true;
-            startingHealthLabel.Location = new System.Drawing.Point(12, 398);
-            startingHealthLabel.Name = "startingHealthLabel";
-            startingHealthLabel.Size = new System.Drawing.Size(104, 17);
-            startingHealthLabel.TabIndex = 12;
-            startingHealthLabel.Text = "Starting health:";
-            // 
             // foodHealthUpDown
             // 
             this.foodHealthUpDown.Location = new System.Drawing.Point(18, 484);
@@ -241,15 +260,6 @@
             0,
             0,
             0});
-            // 
-            // foodHealthLabel
-            // 
-            foodHealthLabel.AutoSize = true;
-            foodHealthLabel.Location = new System.Drawing.Point(15, 464);
-            foodHealthLabel.Name = "foodHealthLabel";
-            foodHealthLabel.Size = new System.Drawing.Size(125, 17);
-            foodHealthLabel.TabIndex = 14;
-            foodHealthLabel.Text = "Food health value:";
             // 
             // reproductionLimitUpDown
             // 
@@ -268,14 +278,16 @@
             0,
             0});
             // 
-            // reproductionLimitLabel
+            // stepButton
             // 
-            reproductionLimitLabel.AutoSize = true;
-            reproductionLimitLabel.Location = new System.Drawing.Point(15, 528);
-            reproductionLimitLabel.Name = "reproductionLimitLabel";
-            reproductionLimitLabel.Size = new System.Drawing.Size(125, 17);
-            reproductionLimitLabel.TabIndex = 16;
-            reproductionLimitLabel.Text = "Reproduction limit:";
+            this.stepButton.Location = new System.Drawing.Point(113, 12);
+            this.stepButton.Name = "stepButton";
+            this.stepButton.Size = new System.Drawing.Size(36, 30);
+            this.stepButton.TabIndex = 18;
+            this.stepButton.Text = "»";
+            this.stepButton.UseVisualStyleBackColor = true;
+            this.stepButton.Visible = false;
+            this.stepButton.Click += new System.EventHandler(this.StepButton_Click);
             // 
             // BloopsForm
             // 
@@ -283,6 +295,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(968, 600);
+            this.Controls.Add(this.stepButton);
             this.Controls.Add(this.reproductionLimitUpDown);
             this.Controls.Add(reproductionLimitLabel);
             this.Controls.Add(this.foodHealthUpDown);
@@ -328,6 +341,7 @@
         private System.Windows.Forms.NumericUpDown startingHealthUpDown;
         private System.Windows.Forms.NumericUpDown foodHealthUpDown;
         private System.Windows.Forms.NumericUpDown reproductionLimitUpDown;
+        private System.Windows.Forms.Button stepButton;
     }
 }
 

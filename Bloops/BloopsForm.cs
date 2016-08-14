@@ -8,6 +8,7 @@
     public partial class BloopsForm : Form
     {
         private World world;
+        private bool running;
 
         public BloopsForm()
         {
@@ -89,21 +90,47 @@
 
         private void StartButton_Click(object sender, EventArgs e)
         {
-            Parameters parameters = new Parameters(
-                (int)this.bloopsUpDown.Value,
-                (int)this.foodUpDown.Value,
-                (double)this.reproductionRateUpDown.Value,
-                (double)this.mutationRateUpDown.Value,
-                (int)this.startingHealthUpDown.Value,
-                (int)this.foodHealthUpDown.Value,
-                (int)this.reproductionLimitUpDown.Value);
+            if (this.world == null)
+            {
+                Parameters parameters = new Parameters(
+                    (int)this.bloopsUpDown.Value,
+                    (int)this.foodUpDown.Value,
+                    (double)this.reproductionRateUpDown.Value,
+                    (double)this.mutationRateUpDown.Value,
+                    (int)this.startingHealthUpDown.Value,
+                    (int)this.foodHealthUpDown.Value,
+                    (int)this.reproductionLimitUpDown.Value);
 
-            this.world = new World(parameters);
+                this.world = new World(parameters);
 
-            this.timer.Start();
+                this.timer.Start();
+                this.running = true;
+                this.startButton.Text = "Pause";
+                this.stepButton.Enabled = false;
+                this.stepButton.Visible = true;
+            }
+            else if (this.running)
+            {
+                this.timer.Stop();
+                this.running = false;
+                this.startButton.Text = "Continue";
+                this.stepButton.Enabled = true;
+            }
+            else
+            {
+                this.timer.Start();
+                this.running = true;
+                this.startButton.Text = "Pause";
+                this.stepButton.Enabled = false;
+            }
         }
 
         private void Timer_Tick(object sender, EventArgs e)
+        {
+            this.TimeStep();
+        }
+
+        private void StepButton_Click(object sender, EventArgs e)
         {
             this.TimeStep();
         }
