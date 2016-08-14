@@ -25,5 +25,13 @@
                 form.ShowDialog(this);
             }
         }
+
+        private void XorButton_Click(object sender, EventArgs e)
+        {
+            using (XorForm form = new XorForm())
+            {
+                form.ShowDialog(this);
+            }
+        }
     }
 }

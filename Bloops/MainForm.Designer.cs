@@ -30,6 +30,7 @@
         {
             this.simpleBloopsButton = new System.Windows.Forms.Button();
             this.neuralGraphButton = new System.Windows.Forms.Button();
+            this.xorButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // simpleBloopsButton
@@ -52,11 +53,22 @@
             this.neuralGraphButton.UseVisualStyleBackColor = true;
             this.neuralGraphButton.Click += new System.EventHandler(this.NeuralGraphButton_Click);
             // 
+            // xorButton
+            // 
+            this.xorButton.Location = new System.Drawing.Point(12, 102);
+            this.xorButton.Name = "xorButton";
+            this.xorButton.Size = new System.Drawing.Size(258, 39);
+            this.xorButton.TabIndex = 2;
+            this.xorButton.Text = "XOR";
+            this.xorButton.UseVisualStyleBackColor = true;
+            this.xorButton.Click += new System.EventHandler(this.XorButton_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(282, 109);
+            this.ClientSize = new System.Drawing.Size(282, 152);
+            this.Controls.Add(this.xorButton);
             this.Controls.Add(this.neuralGraphButton);
             this.Controls.Add(this.simpleBloopsButton);
             this.Name = "MainForm";
@@ -69,5 +81,6 @@
 
         private System.Windows.Forms.Button simpleBloopsButton;
         private System.Windows.Forms.Button neuralGraphButton;
+        private System.Windows.Forms.Button xorButton;
     }
 }
