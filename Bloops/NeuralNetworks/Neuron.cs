@@ -6,6 +6,8 @@
 
     class Neuron
     {
+        private static readonly IActivator activator = new Sigmoid();
+
         private readonly double[] weights;
 
         public Neuron(double[] weights)
@@ -40,12 +42,7 @@
             // Add bias term
             sum += weights.Last();
 
-            return Activate(sum);
-        }
-
-        private static double Activate(double number)
-        {
-            return number >= 0 ? 1 : -1;
+            return activator.Activate(sum);
         }
     }
 }
