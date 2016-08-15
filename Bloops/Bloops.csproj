@@ -71,6 +71,7 @@
     <Compile Include="NeuralNetworks\NeuralNetwork.cs" />
     <Compile Include="NeuralNetworks\Neuron.cs" />
     <Compile Include="NeuralNetworks\NeuronLayer.cs" />
+    <Compile Include="NeuralNetworks\XorTrainer.cs" />
     <Compile Include="Parameters.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

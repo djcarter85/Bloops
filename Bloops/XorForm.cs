@@ -2,11 +2,11 @@
 {
     using System;
     using System.Collections.Generic;
-    using System.Linq;
     using System.Windows.Forms;
 
     public partial class XorForm : Form
     {
+        private XorTrainer trainer = new XorTrainer();
         private NeuralNetwork network;
 
         public XorForm()
@@ -49,36 +49,21 @@
 
         private void TestButton_Click(object sender, EventArgs e)
         {
+            IEnumerable<Tuple<XorTrainer.TestCase, double>> results;
+
+            double error = this.trainer.Error(this.network, out results);
+
             string answers = null;
 
-            foreach (Test testCase in Test.Cases)
+            foreach (var result in results)
             {
-                double[] output = this.network.Outputs(new[] { testCase.A, testCase.B });
-                answers += string.Format("{0}, {1}, {2}, {3}\r\n", testCase.A, testCase.B, testCase.Expected, output.Single());
+                answers += string.Format(
+                    "{0}, {1}, {2}, {3}\r\n", result.Item1.A, result.Item1.B, result.Item1.Expected, result.Item2);
             }
+
+            answers += "Error: " + error;
 
             this.testLabel.Text = answers;
-        }
-
-        private class Test
-        {
-            private static readonly IEnumerable<Test> cases =
-                new[]
-                {
-                    new Test { A = 0, B = 0, Expected = 0},
-                    new Test { A = 0, B = 1, Expected = 1},
-                    new Test { A = 1, B = 0, Expected = 1},
-                    new Test { A = 1, B = 1, Expected = 0},
-                };
-
-            public double A { get; set; }
-            public double B { get; set; }
-            public double Expected { get; set; }
-
-            public static IEnumerable<Test> Cases
-            {
-                get { return cases; }
-            }
         }
     }
 }
