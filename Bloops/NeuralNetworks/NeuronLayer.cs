@@ -7,9 +7,9 @@
     {
         private IEnumerable<Neuron> neurons;
 
-        public NeuronLayer(IEnumerable<Neuron> neurons)
+        public NeuronLayer(Queue<double> genes, int layerNum, int previousLayer)
         {
-            this.neurons = neurons;
+            this.neurons = Helpers.Repeat(() => new Neuron(genes.Dequeue(previousLayer + 1)), layerNum);
         }
 
         public IEnumerable<Neuron> Neurons

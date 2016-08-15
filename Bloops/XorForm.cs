@@ -43,11 +43,7 @@
 
         private void NewNetworkButton_Click(object sender, EventArgs e)
         {
-            NeuronLayer hiddenLayer = new NeuronLayer(new[] { Neuron.Random(2), Neuron.Random(2) });
-            NeuronLayer outputLayer = new NeuronLayer(new[] { Neuron.Random(2) });
-
-            this.network = new NeuralNetwork(new[] { hiddenLayer, outputLayer });
-
+            this.network = new NeuralNetwork(NeuralDna.Random(-1, 1, 9), 2, 2, 1);
             this.networkLabel.Text = this.NetworkDescription;
         }
 

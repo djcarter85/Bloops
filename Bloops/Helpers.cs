@@ -1,7 +1,9 @@
 ﻿namespace Bloops
 {
     using System;
+    using System.Collections.Generic;
     using System.Drawing;
+    using System.Linq;
 
     static class Helpers
     {
@@ -36,6 +38,16 @@
                         size,
                         size));
             }
+        }
+
+        public static T[] Dequeue<T>(this Queue<T> queue, int count)
+        {
+            return Repeat(() => queue.Dequeue(), count).ToArray();
+        }
+
+        public static T[] Repeat<T>(Func<T> func, int count)
+        {
+            return Enumerable.Repeat(0, count).Select(i => func()).ToArray();
         }
     }
 }
