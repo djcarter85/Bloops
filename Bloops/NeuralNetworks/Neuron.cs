@@ -6,7 +6,7 @@
 
     class Neuron
     {
-        private static readonly IActivator activator = new Sigmoid();
+        private static readonly IActivator activator = new Step(0, 1);
 
         private readonly double[] weights;
 
