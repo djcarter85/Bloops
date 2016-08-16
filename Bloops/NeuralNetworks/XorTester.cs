@@ -9,7 +9,7 @@
         public double Fitness(NeuralNetwork network)
         {
             IEnumerable<Tuple<TestCase, double>> dummy;
-            return 1 / Error(network, out dummy);
+            return 4 - this.Error(network, out dummy);
         }
 
         public double Error(NeuralNetwork network, out IEnumerable<Tuple<TestCase, double>> results)
