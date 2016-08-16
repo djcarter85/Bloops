@@ -4,8 +4,14 @@
     using System.Collections.Generic;
     using System.Linq;
 
-    class XorTrainer
+    class XorTester
     {
+        public double Fitness(NeuralNetwork network)
+        {
+            IEnumerable<Tuple<TestCase, double>> dummy;
+            return 1 / Error(network, out dummy);
+        }
+
         public double Error(NeuralNetwork network, out IEnumerable<Tuple<TestCase, double>> results)
         {
             results = TestCase.All.Select(tc => Tuple.Create(tc, network.Outputs(new[] { tc.A, tc.B }).Single())).ToArray();

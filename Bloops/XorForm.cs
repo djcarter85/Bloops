@@ -6,7 +6,7 @@
 
     public partial class XorForm : Form
     {
-        private XorTrainer trainer = new XorTrainer();
+        private XorTester tester = new XorTester();
         private NeuralNetwork network;
 
         public XorForm()
@@ -49,9 +49,9 @@
 
         private void TestButton_Click(object sender, EventArgs e)
         {
-            IEnumerable<Tuple<XorTrainer.TestCase, double>> results;
+            IEnumerable<Tuple<XorTester.TestCase, double>> results;
 
-            double error = this.trainer.Error(this.network, out results);
+            double error = this.tester.Error(this.network, out results);
 
             string answers = null;
 
