@@ -6,6 +6,7 @@
     class XorEvolver
     {
         private const double MutationRate = 0.01;
+        private const int PopulationSize = 100;
 
         private readonly IFitnessTester fitnessTester;
         private Dictionary<NeuralNetwork, double> population;
@@ -13,8 +14,17 @@
         public XorEvolver(IFitnessTester fitnessTester)
         {
             this.fitnessTester = fitnessTester;
-            IEnumerable<NeuralNetwork> networks = Helpers.Repeat(() => new NeuralNetwork(NeuralDna.Random(-1, 1, 9), 2, 2, 1), 15);
+            IEnumerable<NeuralNetwork> networks = Helpers.Repeat(
+                () => new NeuralNetwork(NeuralDna.Random(-1, 1, 9), 2, 2, 1), PopulationSize);
             this.population = networks.ToDictionary(nn => nn, nn => this.fitnessTester.Fitness(nn));
+        }
+
+        public void ProcessGenerations(int generations)
+        {
+            for (int i = 0; i < generations; i++)
+            {
+                this.ProcessGeneration();
+            }
         }
 
         public void ProcessGeneration()

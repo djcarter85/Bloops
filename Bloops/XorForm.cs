@@ -42,7 +42,9 @@
         {
             IEnumerable<Tuple<XorTester.TestCase, double>> results;
 
-            double error = new XorTester().Error(network, out results);
+            var tester = new XorTester();
+
+            double error = tester.Error(network, out results);
 
             string answers = null;
 
@@ -52,13 +54,15 @@
                     "{0}, {1}, {2}, {3}\r\n", result.Item1.A, result.Item1.B, result.Item1.Expected, result.Item2);
             }
 
-            answers += "Error: " + error;
+            answers += "Error: " + error + "\r\n";
+            answers += "Fitness: " + tester.Fitness(network);
+
             return answers;
         }
 
         private void EvolveButton_Click(object sender, EventArgs e)
         {
-            this.evolver.ProcessGeneration();
+            this.evolver.ProcessGenerations(100);
 
             this.networkLabel.Text = this.NetworkDescription(this.evolver.Fittest);
             this.resultsLabel.Text = this.TestResults(this.evolver.Fittest);
