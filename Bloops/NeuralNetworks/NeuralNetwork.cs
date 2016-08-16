@@ -10,6 +10,10 @@
 
         public NeuralNetwork(NeuralDna dna, int numInputs, params int[] layerNums)
         {
+            this.Dna = dna;
+            this.NumInputs = numInputs;
+            this.LayerNums = layerNums;
+
             Queue<double> genes = new Queue<double>(dna.Genes);
             List<NeuronLayer> layers = new List<NeuronLayer>();
 
@@ -28,6 +32,10 @@
 
             this.layers = layers;
         }
+
+        public NeuralDna Dna { get; private set; }
+        public int NumInputs { get; private set; }
+        public int[] LayerNums { get; private set; }
 
         public IEnumerable<NeuronLayer> Layers
         {

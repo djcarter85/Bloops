@@ -6,52 +6,43 @@
 
     public partial class XorForm : Form
     {
-        private XorTester tester = new XorTester();
-        private NeuralNetwork network;
+        private readonly XorEvolver evolver;
 
         public XorForm()
         {
             this.InitializeComponent();
+            this.evolver = new XorEvolver(new XorTester());
         }
 
-        private string NetworkDescription
+        private string NetworkDescription(NeuralNetwork network)
         {
-            get
+            string description = null;
+
+            foreach (NeuronLayer layer in network.Layers)
             {
-                string description = null;
-
-                foreach (NeuronLayer layer in this.network.Layers)
+                foreach (Neuron neuron in layer.Neurons)
                 {
-                    foreach (Neuron neuron in layer.Neurons)
+                    description += "(";
+
+                    foreach (var weight in neuron.Weights)
                     {
-                        description += "(";
-
-                        foreach (var weight in neuron.Weights)
-                        {
-                            description += weight.ToString("0.00") + ",";
-                        }
-
-                        description += ")  ";
+                        description += weight.ToString("0.00") + ",";
                     }
 
-                    description += "\r\n";
+                    description += ")  ";
                 }
 
-                return description;
+                description += "\r\n";
             }
+
+            return description;
         }
 
-        private void NewNetworkButton_Click(object sender, EventArgs e)
-        {
-            this.network = new NeuralNetwork(NeuralDna.Random(-1, 1, 9), 2, 2, 1);
-            this.networkLabel.Text = this.NetworkDescription;
-        }
-
-        private void TestButton_Click(object sender, EventArgs e)
+        private string TestResults(NeuralNetwork network)
         {
             IEnumerable<Tuple<XorTester.TestCase, double>> results;
 
-            double error = this.tester.Error(this.network, out results);
+            double error = new XorTester().Error(network, out results);
 
             string answers = null;
 
@@ -62,8 +53,15 @@
             }
 
             answers += "Error: " + error;
+            return answers;
+        }
 
-            this.testLabel.Text = answers;
+        private void EvolveButton_Click(object sender, EventArgs e)
+        {
+            this.evolver.ProcessGeneration();
+
+            this.networkLabel.Text = this.NetworkDescription(this.evolver.Fittest);
+            this.resultsLabel.Text = this.TestResults(this.evolver.Fittest);
         }
     }
 }

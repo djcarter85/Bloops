@@ -70,10 +70,12 @@
     <Compile Include="NeuralNetworks\ActivationFunctions\IActivator.cs" />
     <Compile Include="NeuralNetworks\ActivationFunctions\Sigmoid.cs" />
     <Compile Include="NeuralNetworks\ActivationFunctions\Step.cs" />
+    <Compile Include="NeuralNetworks\IFitnessTester.cs" />
     <Compile Include="NeuralNetworks\NeuralDna.cs" />
     <Compile Include="NeuralNetworks\NeuralNetwork.cs" />
     <Compile Include="NeuralNetworks\Neuron.cs" />
     <Compile Include="NeuralNetworks\NeuronLayer.cs" />
+    <Compile Include="NeuralNetworks\XorEvolver.cs" />
     <Compile Include="NeuralNetworks\XorTester.cs" />
     <Compile Include="Parameters.cs" />
     <Compile Include="Program.cs" />

@@ -49,5 +49,26 @@
         {
             return Enumerable.Repeat(0, count).Select(i => func()).ToArray();
         }
+
+        public static T Random<T>(this IEnumerable<T> source, Func<T, double> weight)
+        {
+            // TODO: only evaluate weight once
+
+            double totalWeight = source.Sum(weight);
+
+            double x = random.NextDouble() * totalWeight;
+
+            foreach (T item in source)
+            {
+                if (x < weight(item))
+                {
+                    return item;
+                }
+
+                x -= weight(item);
+            }
+
+            return source.Last();
+        }
     }
 }
