@@ -130,8 +130,8 @@
             // 
             // map
             // 
-            this.map.BackColor = System.Drawing.Color.White;
-            this.map.Location = new System.Drawing.Point(206, 37);
+            this.map.BackColor = System.Drawing.Color.PaleGreen;
+            this.map.Location = new System.Drawing.Point(206, 29);
             this.map.Margin = new System.Windows.Forms.Padding(4);
             this.map.Name = "map";
             this.map.Size = new System.Drawing.Size(44, 98);

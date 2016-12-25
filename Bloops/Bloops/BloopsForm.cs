@@ -41,7 +41,7 @@
 
         private static void DrawFood(Vector food, Graphics graphics)
         {
-            using (Pen pen = new Pen(Brushes.Blue))
+            using (Pen pen = new Pen(Brushes.Red))
             {
                 graphics.DrawRectangle(
                     pen,
