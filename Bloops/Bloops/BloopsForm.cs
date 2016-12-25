@@ -108,6 +108,15 @@
                 this.startButton.Text = "Pause";
                 this.stepButton.Enabled = false;
                 this.stepButton.Visible = true;
+
+                this.bloopsUpDown.Enabled =
+                    this.foodUpDown.Enabled =
+                    this.reproductionRateUpDown.Enabled =
+                    this.mutationRateUpDown.Enabled =
+                    this.startingHealthUpDown.Enabled =
+                    this.foodHealthUpDown.Enabled =
+                    this.reproductionLimitUpDown.Enabled =
+                    false;
             }
             else if (this.running)
             {
