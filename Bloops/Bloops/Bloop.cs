@@ -9,7 +9,7 @@
 
         private Vector velocity;
 
-        public Bloop(Dna dna, Parameters parameters, Vector initialPosition = default(Vector))
+        public Bloop(Dna dna, Parameters parameters, Vector initialPosition)
         {
             this.dna = dna;
             this.Radius = dna.Gene * 30;
@@ -60,7 +60,7 @@
                 childDna.Mutate();
             }
 
-            return new Bloop(childDna, this.parameters, initialPosition: this.Location);
+            return new Bloop(childDna, this.parameters, this.Location);
         }
     }
 }

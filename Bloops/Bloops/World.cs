@@ -25,7 +25,7 @@
                 .ToList();
 
             this.foods = Enumerable.Repeat(0, this.parameters.NumFood)
-                .Select(i => RandomFood())
+                .Select(i => RandomLocation())
                 .ToList();
         }
 
@@ -63,7 +63,7 @@
                 if (this.bloops.Any(b => b.Eat(food)))
                 {
                     this.foods.Remove(food);
-                    this.foods.Add(RandomFood());
+                    this.foods.Add(RandomLocation());
                 }
             }
 
@@ -72,10 +72,10 @@
 
         private Bloop RandomBloop()
         {
-            return new Bloop(Dna.Random(), this.parameters);
+            return new Bloop(Dna.Random(), this.parameters, RandomLocation());
         }
 
-        private static Vector RandomFood()
+        private static Vector RandomLocation()
         {
             return new Vector
             {
