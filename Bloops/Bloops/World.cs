@@ -46,9 +46,9 @@
             get { return this.bloops.Count; }
         }
 
-        public int MaxHealth
+        public int MaxFoodEaten
         {
-            get { return this.bloops.Max(b => b.Health); }
+            get { return this.bloops.Max(b => b.FoodEaten); }
         }
 
         public void Tick()
@@ -58,24 +58,12 @@
                 bloop.Update(Width, Height);
             }
 
-            this.bloops.RemoveAll(b => b.Dead);
-
             foreach (Vector food in this.foods.ToArray())
             {
                 if (this.bloops.Any(b => b.Eat(food)))
                 {
                     this.foods.Remove(food);
                     this.foods.Add(RandomFood());
-                }
-            }
-
-            foreach (Bloop bloop in this.bloops.ToArray())
-            {
-                Bloop child = bloop.Reproduce();
-
-                if (child != null)
-                {
-                    this.bloops.Add(child);
                 }
             }
 

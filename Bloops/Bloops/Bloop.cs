@@ -18,18 +18,12 @@
             this.parameters = parameters;
 
             this.Location = initialPosition;
-            this.Health = this.parameters.StartingHealth;
         }
 
         public Vector Location { get; private set; }
         public double Radius { get; private set; }
 
-        public int Health { get; private set; }
-
-        public bool Dead
-        {
-            get { return this.Health <= 0; }
-        }
+        public int FoodEaten { get; private set; }
 
         public void Update(int maxX, int maxY)
         {
@@ -44,15 +38,13 @@
             this.Location += this.velocity;
 
             this.Location = this.Location.CheckEdges(maxX, maxY);
-
-            this.Health--;
         }
 
         public bool Eat(Vector food)
         {
             if (this.Location.DistanceTo(food) <= this.Radius)
             {
-                this.Health += this.parameters.FoodHealth;
+                this.FoodEaten++;
                 return true;
             }
 
@@ -61,19 +53,14 @@
 
         public Bloop Reproduce()
         {
-            if (this.Health >= this.parameters.ReproductionLimit && Helpers.EventOccurs(this.parameters.ReproductionRate))
+            Dna childDna = dna.Copy();
+
+            if (Helpers.EventOccurs(this.parameters.MutationRate))
             {
-                Dna childDna = dna.Copy();
-
-                if (Helpers.EventOccurs(this.parameters.MutationRate))
-                {
-                    childDna.Mutate();
-                }
-
-                return new Bloop(childDna, this.parameters, initialPosition: this.Location);
+                childDna.Mutate();
             }
 
-            return null;
+            return new Bloop(childDna, this.parameters, initialPosition: this.Location);
         }
     }
 }

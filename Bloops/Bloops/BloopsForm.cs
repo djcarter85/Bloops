@@ -2,7 +2,6 @@
 {
     using System;
     using System.Drawing;
-    using System.Linq;
     using System.Windows.Forms;
 
     public partial class BloopsForm : Form
@@ -25,11 +24,7 @@
                 Parameters parameters = new Parameters(
                     (int)this.bloopsUpDown.Value,
                     (int)this.foodUpDown.Value,
-                    (double)this.reproductionRateUpDown.Value,
-                    (double)this.mutationRateUpDown.Value,
-                    (int)this.startingHealthUpDown.Value,
-                    (int)this.foodHealthUpDown.Value,
-                    (int)this.reproductionLimitUpDown.Value);
+                    (double)this.mutationRateUpDown.Value);
 
                 this.world = new World(parameters);
 
@@ -41,11 +36,7 @@
 
                 this.bloopsUpDown.Enabled =
                     this.foodUpDown.Enabled =
-                    this.reproductionRateUpDown.Enabled =
                     this.mutationRateUpDown.Enabled =
-                    this.startingHealthUpDown.Enabled =
-                    this.foodHealthUpDown.Enabled =
-                    this.reproductionLimitUpDown.Enabled =
                     false;
             }
             else if (this.running)
@@ -79,19 +70,11 @@
             this.world.Tick();
             this.map.Invalidate();
 
-            if (!this.world.Bloops.Any())
-            {
-                this.timer.Stop();
-                MessageBox.Show("All dead!");
-            }
-            else
-            {
-                this.statusLabel.Text = string.Format(
-                    "Ticks: {0}\r\nBloops: {1}\r\nMax health: {2}",
-                    this.world.Ticks,
-                    this.world.BloopCount,
-                    this.world.MaxHealth);
-            }
+            this.statusLabel.Text = string.Format(
+                "Ticks: {0}\r\nBloops: {1}\r\nMax food eaten: {2}",
+                this.world.Ticks,
+                this.world.BloopCount,
+                this.world.MaxFoodEaten);
         }
 
         private void Map_Paint(object sender, PaintEventArgs e)
@@ -112,22 +95,20 @@
 
         private static void DrawBloop(Bloop bloop, Graphics graphics)
         {
-            int colour = Math.Max(255 - bloop.Health * 2, 0);
-
             Rectangle rect = new Rectangle(
                 Convert.ToInt32(bloop.Location.X - bloop.Radius) + World.Width,
                 Convert.ToInt32(bloop.Location.Y - bloop.Radius) + World.Height,
                 Convert.ToInt32(2 * bloop.Radius),
                 Convert.ToInt32(2 * bloop.Radius));
 
-            using (SolidBrush brush = new SolidBrush(Color.FromArgb(100, colour, colour, colour)))
+            using (SolidBrush brush = new SolidBrush(Color.FromArgb(100, 127, 127, 127)))
             {
                 graphics.FillEllipse(brush, rect);
             }
 
             using (SolidBrush brush = new SolidBrush(Color.Black))
             {
-                graphics.DrawString(bloop.Health.ToString(), new Font("Verdana", 10), brush, rect.Location);
+                graphics.DrawString(bloop.FoodEaten.ToString(), new Font("Verdana", 10), brush, rect.Location);
             }
         }
 

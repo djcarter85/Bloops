@@ -31,38 +31,22 @@
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.Label bloopNumberLabel;
             System.Windows.Forms.Label foodLabel;
-            System.Windows.Forms.Label reproductionRateLabel;
             System.Windows.Forms.Label mutationRateLabel;
-            System.Windows.Forms.Label startingHealthLabel;
-            System.Windows.Forms.Label foodHealthLabel;
-            System.Windows.Forms.Label reproductionLimitLabel;
             this.map = new System.Windows.Forms.PictureBox();
             this.timer = new System.Windows.Forms.Timer(this.components);
             this.startButton = new System.Windows.Forms.Button();
             this.statusLabel = new System.Windows.Forms.Label();
             this.bloopsUpDown = new System.Windows.Forms.NumericUpDown();
             this.foodUpDown = new System.Windows.Forms.NumericUpDown();
-            this.reproductionRateUpDown = new System.Windows.Forms.NumericUpDown();
             this.mutationRateUpDown = new System.Windows.Forms.NumericUpDown();
-            this.startingHealthUpDown = new System.Windows.Forms.NumericUpDown();
-            this.foodHealthUpDown = new System.Windows.Forms.NumericUpDown();
-            this.reproductionLimitUpDown = new System.Windows.Forms.NumericUpDown();
             this.stepButton = new System.Windows.Forms.Button();
             bloopNumberLabel = new System.Windows.Forms.Label();
             foodLabel = new System.Windows.Forms.Label();
-            reproductionRateLabel = new System.Windows.Forms.Label();
             mutationRateLabel = new System.Windows.Forms.Label();
-            startingHealthLabel = new System.Windows.Forms.Label();
-            foodHealthLabel = new System.Windows.Forms.Label();
-            reproductionLimitLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.map)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bloopsUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.foodUpDown)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.reproductionRateUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mutationRateUpDown)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.startingHealthUpDown)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.foodHealthUpDown)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.reproductionLimitUpDown)).BeginInit();
             this.SuspendLayout();
             // 
             // bloopNumberLabel
@@ -83,15 +67,6 @@
             foodLabel.TabIndex = 6;
             foodLabel.Text = "Food:";
             // 
-            // reproductionRateLabel
-            // 
-            reproductionRateLabel.AutoSize = true;
-            reproductionRateLabel.Location = new System.Drawing.Point(12, 271);
-            reproductionRateLabel.Name = "reproductionRateLabel";
-            reproductionRateLabel.Size = new System.Drawing.Size(126, 17);
-            reproductionRateLabel.TabIndex = 8;
-            reproductionRateLabel.Text = "Reproduction rate:";
-            // 
             // mutationRateLabel
             // 
             mutationRateLabel.AutoSize = true;
@@ -100,33 +75,6 @@
             mutationRateLabel.Size = new System.Drawing.Size(95, 17);
             mutationRateLabel.TabIndex = 10;
             mutationRateLabel.Text = "Mutation rate:";
-            // 
-            // startingHealthLabel
-            // 
-            startingHealthLabel.AutoSize = true;
-            startingHealthLabel.Location = new System.Drawing.Point(12, 398);
-            startingHealthLabel.Name = "startingHealthLabel";
-            startingHealthLabel.Size = new System.Drawing.Size(104, 17);
-            startingHealthLabel.TabIndex = 12;
-            startingHealthLabel.Text = "Starting health:";
-            // 
-            // foodHealthLabel
-            // 
-            foodHealthLabel.AutoSize = true;
-            foodHealthLabel.Location = new System.Drawing.Point(15, 464);
-            foodHealthLabel.Name = "foodHealthLabel";
-            foodHealthLabel.Size = new System.Drawing.Size(125, 17);
-            foodHealthLabel.TabIndex = 14;
-            foodHealthLabel.Text = "Food health value:";
-            // 
-            // reproductionLimitLabel
-            // 
-            reproductionLimitLabel.AutoSize = true;
-            reproductionLimitLabel.Location = new System.Drawing.Point(15, 528);
-            reproductionLimitLabel.Name = "reproductionLimitLabel";
-            reproductionLimitLabel.Size = new System.Drawing.Size(125, 17);
-            reproductionLimitLabel.TabIndex = 16;
-            reproductionLimitLabel.Text = "Reproduction limit:";
             // 
             // map
             // 
@@ -191,24 +139,6 @@
             0,
             0});
             // 
-            // reproductionRateUpDown
-            // 
-            this.reproductionRateUpDown.DecimalPlaces = 4;
-            this.reproductionRateUpDown.Increment = new decimal(new int[] {
-            5,
-            0,
-            0,
-            262144});
-            this.reproductionRateUpDown.Location = new System.Drawing.Point(12, 291);
-            this.reproductionRateUpDown.Name = "reproductionRateUpDown";
-            this.reproductionRateUpDown.Size = new System.Drawing.Size(76, 22);
-            this.reproductionRateUpDown.TabIndex = 9;
-            this.reproductionRateUpDown.Value = new decimal(new int[] {
-            3,
-            0,
-            0,
-            196608});
-            // 
             // mutationRateUpDown
             // 
             this.mutationRateUpDown.DecimalPlaces = 3;
@@ -226,57 +156,6 @@
             0,
             0,
             131072});
-            // 
-            // startingHealthUpDown
-            // 
-            this.startingHealthUpDown.Location = new System.Drawing.Point(15, 418);
-            this.startingHealthUpDown.Maximum = new decimal(new int[] {
-            500,
-            0,
-            0,
-            0});
-            this.startingHealthUpDown.Name = "startingHealthUpDown";
-            this.startingHealthUpDown.Size = new System.Drawing.Size(76, 22);
-            this.startingHealthUpDown.TabIndex = 13;
-            this.startingHealthUpDown.Value = new decimal(new int[] {
-            100,
-            0,
-            0,
-            0});
-            // 
-            // foodHealthUpDown
-            // 
-            this.foodHealthUpDown.Location = new System.Drawing.Point(18, 484);
-            this.foodHealthUpDown.Maximum = new decimal(new int[] {
-            500,
-            0,
-            0,
-            0});
-            this.foodHealthUpDown.Name = "foodHealthUpDown";
-            this.foodHealthUpDown.Size = new System.Drawing.Size(76, 22);
-            this.foodHealthUpDown.TabIndex = 15;
-            this.foodHealthUpDown.Value = new decimal(new int[] {
-            100,
-            0,
-            0,
-            0});
-            // 
-            // reproductionLimitUpDown
-            // 
-            this.reproductionLimitUpDown.Location = new System.Drawing.Point(18, 548);
-            this.reproductionLimitUpDown.Maximum = new decimal(new int[] {
-            500,
-            0,
-            0,
-            0});
-            this.reproductionLimitUpDown.Name = "reproductionLimitUpDown";
-            this.reproductionLimitUpDown.Size = new System.Drawing.Size(76, 22);
-            this.reproductionLimitUpDown.TabIndex = 17;
-            this.reproductionLimitUpDown.Value = new decimal(new int[] {
-            100,
-            0,
-            0,
-            0});
             // 
             // stepButton
             // 
@@ -296,16 +175,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(968, 600);
             this.Controls.Add(this.stepButton);
-            this.Controls.Add(this.reproductionLimitUpDown);
-            this.Controls.Add(reproductionLimitLabel);
-            this.Controls.Add(this.foodHealthUpDown);
-            this.Controls.Add(foodHealthLabel);
-            this.Controls.Add(this.startingHealthUpDown);
-            this.Controls.Add(startingHealthLabel);
             this.Controls.Add(this.mutationRateUpDown);
             this.Controls.Add(mutationRateLabel);
-            this.Controls.Add(this.reproductionRateUpDown);
-            this.Controls.Add(reproductionRateLabel);
             this.Controls.Add(this.foodUpDown);
             this.Controls.Add(foodLabel);
             this.Controls.Add(this.bloopsUpDown);
@@ -318,11 +189,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.map)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bloopsUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.foodUpDown)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.reproductionRateUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mutationRateUpDown)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.startingHealthUpDown)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.foodHealthUpDown)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.reproductionLimitUpDown)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -336,11 +203,7 @@
         private System.Windows.Forms.Label statusLabel;
         private System.Windows.Forms.NumericUpDown bloopsUpDown;
         private System.Windows.Forms.NumericUpDown foodUpDown;
-        private System.Windows.Forms.NumericUpDown reproductionRateUpDown;
         private System.Windows.Forms.NumericUpDown mutationRateUpDown;
-        private System.Windows.Forms.NumericUpDown startingHealthUpDown;
-        private System.Windows.Forms.NumericUpDown foodHealthUpDown;
-        private System.Windows.Forms.NumericUpDown reproductionLimitUpDown;
         private System.Windows.Forms.Button stepButton;
     }
 }
