@@ -39,7 +39,19 @@
             get { return this.foods; }
         }
 
-        public void Update()
+        public int Ticks { get; private set; }
+
+        public int BloopCount
+        {
+            get { return this.bloops.Count; }
+        }
+
+        public int MaxHealth
+        {
+            get { return this.bloops.Max(b => b.Health); }
+        }
+
+        public void Tick()
         {
             foreach (Bloop bloop in this.bloops)
             {
@@ -66,6 +78,8 @@
                     this.bloops.Add(child);
                 }
             }
+
+            this.Ticks++;
         }
 
         private Bloop RandomBloop()

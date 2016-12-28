@@ -76,7 +76,7 @@
 
         private void TimeStep()
         {
-            this.world.Update();
+            this.world.Tick();
             this.map.Invalidate();
 
             if (!this.world.Bloops.Any())
@@ -87,9 +87,10 @@
             else
             {
                 this.statusLabel.Text = string.Format(
-                    "Bloops: {0}\r\nMax health: {1}",
-                    this.world.Bloops.Count(),
-                    this.world.Bloops.Max(b => b.Health));
+                    "Ticks: {0}\r\nBloops: {1}\r\nMax health: {2}",
+                    this.world.Ticks,
+                    this.world.BloopCount,
+                    this.world.MaxHealth);
             }
         }
 
