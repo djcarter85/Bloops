@@ -71,7 +71,8 @@
             this.map.Invalidate();
 
             this.statusLabel.Text = string.Format(
-                "Ticks: {0}\r\nBloops: {1}\r\nMax food eaten: {2}",
+                "Generation: {0}\r\nTicks: {1}\r\nBloops: {2}\r\nMax food eaten: {3}",
+                this.world.Generation,
                 this.world.Ticks,
                 this.world.BloopCount,
                 this.world.MaxFoodEaten);

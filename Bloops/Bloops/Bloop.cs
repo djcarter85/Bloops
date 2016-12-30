@@ -23,6 +23,11 @@
             this.Location = initialPosition;
         }
 
+        public Dna Dna
+        {
+            get { return this.dna; }
+        }
+
         public Vector Location { get; private set; }
         public double Radius { get; private set; }
 
