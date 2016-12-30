@@ -28,12 +28,12 @@
 
         public int FoodEaten { get; private set; }
 
-        public void Update(int maxX, int maxY)
+        public void Tick(int maxX, int maxY)
         {
             this.velocity += new Vector
             {
-                X = Helpers.NextRandom(-5, 5),
-                Y = Helpers.NextRandom(-5, 5)
+                X = Helpers.NextDouble(-5, 5),
+                Y = Helpers.NextDouble(-5, 5)
             };
 
             this.velocity.Limit(this.maxSpeed);

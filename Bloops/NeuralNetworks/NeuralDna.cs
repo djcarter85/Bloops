@@ -16,7 +16,7 @@
 
         public static NeuralDna Random(double min, double max, int geneCount)
         {
-            return new NeuralDna(Helpers.Repeat(() => Helpers.NextRandom(min, max), geneCount), min, max);
+            return new NeuralDna(Helpers.Repeat(() => Helpers.NextDouble(min, max), geneCount), min, max);
         }
 
         public NeuralDna Crossover(NeuralDna partner)
@@ -39,7 +39,7 @@
             {
                 if (Helpers.EventOccurs(mutationRate))
                 {
-                    this.Genes[i] = Helpers.NextRandom(this.min, this.max);
+                    this.Genes[i] = Helpers.NextDouble(this.min, this.max);
                 }
             }
         }

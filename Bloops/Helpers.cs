@@ -9,7 +9,7 @@
     {
         private static readonly Random random = new Random();
 
-        public static double NextRandom(double min, double max)
+        public static double NextDouble(double min, double max)
         {
             return random.NextDouble() * (max - min) + min;
         }

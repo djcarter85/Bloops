@@ -16,7 +16,7 @@
 
         public static Dna Random(int numberOfGenes)
         {
-            var genes = Helpers.Repeat(() => Helpers.NextRandom(0, 1), numberOfGenes);
+            var genes = Helpers.Repeat(() => Helpers.NextDouble(0, 1), numberOfGenes);
 
             return new Dna(genes);
         }

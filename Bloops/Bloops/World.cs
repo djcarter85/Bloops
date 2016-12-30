@@ -55,7 +55,7 @@
         {
             foreach (Bloop bloop in this.bloops)
             {
-                bloop.Update(Width, Height);
+                bloop.Tick(Width, Height);
             }
 
             foreach (Vector food in this.foods.ToArray())
