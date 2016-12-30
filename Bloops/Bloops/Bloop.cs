@@ -7,6 +7,7 @@
 
         private readonly Parameters parameters;
 
+        private readonly double radius;
         private readonly double maxSpeed;
         private readonly Dna dna;
 
@@ -15,7 +16,7 @@
         public Bloop(Dna dna, Parameters parameters, Vector initialPosition)
         {
             this.dna = dna;
-            this.Radius = dna.Genes[RadiusIndex] * 30;
+            this.radius = dna.Genes[RadiusIndex] * 30;
             this.maxSpeed = 10 * (1 - dna.Genes[SpeedIndex]);
 
             this.parameters = parameters;
@@ -28,8 +29,17 @@
             get { return this.dna; }
         }
 
+        public double Radius
+        {
+            get { return this.radius; }
+        }
+
+        public double MaxSpeed
+        {
+            get { return this.maxSpeed; }
+        }
+
         public Vector Location { get; private set; }
-        public double Radius { get; private set; }
 
         public int FoodEaten { get; private set; }
 

@@ -71,11 +71,13 @@
             this.map.Invalidate();
 
             this.statusLabel.Text = string.Format(
-                "Generation: {0}\r\nTicks: {1}\r\nBloops: {2}\r\nMax food eaten: {3}",
+                "Generation: {0}\r\nTicks: {1}\r\nBloops: {2}\r\nMax food eaten: {3}\r\nMean radius: {4}\r\nMean max speed: {5}",
                 this.world.Generation,
                 this.world.Ticks,
                 this.world.BloopCount,
-                this.world.MaxFoodEaten);
+                this.world.MaxFoodEaten,
+                this.world.MeanRadius,
+                this.world.MeanMaxSpeed);
         }
 
         private void Map_Paint(object sender, PaintEventArgs e)

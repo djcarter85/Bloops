@@ -52,7 +52,7 @@
             // bloopNumberLabel
             // 
             bloopNumberLabel.AutoSize = true;
-            bloopNumberLabel.Location = new System.Drawing.Point(12, 142);
+            bloopNumberLabel.Location = new System.Drawing.Point(12, 216);
             bloopNumberLabel.Name = "bloopNumberLabel";
             bloopNumberLabel.Size = new System.Drawing.Size(107, 17);
             bloopNumberLabel.TabIndex = 4;
@@ -61,7 +61,7 @@
             // foodLabel
             // 
             foodLabel.AutoSize = true;
-            foodLabel.Location = new System.Drawing.Point(12, 205);
+            foodLabel.Location = new System.Drawing.Point(12, 279);
             foodLabel.Name = "foodLabel";
             foodLabel.Size = new System.Drawing.Size(44, 17);
             foodLabel.TabIndex = 6;
@@ -79,7 +79,7 @@
             // map
             // 
             this.map.BackColor = System.Drawing.Color.PaleGreen;
-            this.map.Location = new System.Drawing.Point(206, 29);
+            this.map.Location = new System.Drawing.Point(351, 29);
             this.map.Margin = new System.Windows.Forms.Padding(4);
             this.map.Name = "map";
             this.map.Size = new System.Drawing.Size(44, 98);
@@ -112,7 +112,7 @@
             // 
             // bloopsUpDown
             // 
-            this.bloopsUpDown.Location = new System.Drawing.Point(12, 162);
+            this.bloopsUpDown.Location = new System.Drawing.Point(12, 236);
             this.bloopsUpDown.Maximum = new decimal(new int[] {
             20,
             0,
@@ -129,7 +129,7 @@
             // 
             // foodUpDown
             // 
-            this.foodUpDown.Location = new System.Drawing.Point(12, 225);
+            this.foodUpDown.Location = new System.Drawing.Point(12, 299);
             this.foodUpDown.Name = "foodUpDown";
             this.foodUpDown.Size = new System.Drawing.Size(76, 22);
             this.foodUpDown.TabIndex = 7;

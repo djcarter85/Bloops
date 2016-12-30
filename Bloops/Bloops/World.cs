@@ -42,6 +42,16 @@
             get { return this.foods; }
         }
 
+        public double MeanRadius
+        {
+            get { return this.bloops.Select(b => b.Radius).Average(); }
+        }
+
+        public double MeanMaxSpeed
+        {
+            get { return this.bloops.Select(b => b.MaxSpeed).Average(); }
+        }
+
         public int Generation { get; private set; }
 
         public int Ticks { get; private set; }
