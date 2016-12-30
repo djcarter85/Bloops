@@ -73,11 +73,18 @@
             this.map.Invalidate();
 
             this.statusLabel.Text = string.Format(
-                "Generation: {0}\r\nTicks: {1}\r\nBloops: {2}\r\nMax food eaten: {3}\r\nMean radius: {4:0.000}\r\nMean max speed: {5:0.000}",
+                "Generation: {0}\r\n" +
+                "Ticks: {1}\r\n" +
+                "Bloops: {2}\r\n" +
+                "Max food eaten: {3}\r\n" +
+                "Mean food eaten: {4}\r\n" +
+                "Mean radius: {5:0.000}\r\n" +
+                "Mean max speed: {6:0.000}",
                 this.world.Generation,
                 this.world.Ticks,
                 this.world.BloopCount,
                 this.world.MaxFoodEaten,
+                this.world.MeanFoodEaten,
                 this.world.MeanRadius,
                 this.world.MeanMaxSpeed);
         }

@@ -60,6 +60,11 @@
             get { return this.bloops.Max(b => b.FoodEaten); }
         }
 
+        public double MeanFoodEaten
+        {
+            get { return this.bloops.Select(b => b.FoodEaten).Average(); }
+        }
+
         public void Tick()
         {
             if (this.Ticks > this.parameters.TicksPerGeneration)
