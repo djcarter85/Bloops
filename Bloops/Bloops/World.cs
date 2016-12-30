@@ -23,13 +23,9 @@
         {
             this.parameters = parameters;
 
-            this.bloops = Enumerable.Repeat(0, this.parameters.StartingBloops)
-                .Select(i => this.RandomBloop())
-                .ToList();
+            this.bloops = Helpers.Repeat(() => this.RandomBloop(), this.parameters.StartingBloops).ToList();
 
-            this.foods = Enumerable.Repeat(0, this.parameters.NumFood)
-                .Select(i => RandomLocation())
-                .ToList();
+            this.foods = Helpers.Repeat(() => RandomLocation(), this.parameters.NumFood).ToList();
         }
 
         public IEnumerable<Bloop> Bloops

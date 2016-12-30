@@ -37,7 +37,7 @@
         {
             if (this.neuron != null)
             {
-                IEnumerable<Vector> points = Enumerable.Repeat(0, NumPoints).Select(i => RandomVector()).ToArray();
+                IEnumerable<Vector> points = Helpers.Repeat(() => RandomVector(), NumPoints);
 
                 foreach (Vector point in points)
                 {
