@@ -72,7 +72,7 @@
 
         private Bloop RandomBloop()
         {
-            return new Bloop(Dna.Random(), this.parameters, RandomLocation());
+            return new Bloop(Dna.Random(2), this.parameters, RandomLocation());
         }
 
         private static Vector RandomLocation()

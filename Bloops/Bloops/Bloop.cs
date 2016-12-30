@@ -2,6 +2,9 @@
 {
     class Bloop
     {
+        private const int RadiusIndex = 0;
+        private const int SpeedIndex = 1;
+
         private readonly Parameters parameters;
 
         private readonly double maxSpeed;
@@ -12,8 +15,8 @@
         public Bloop(Dna dna, Parameters parameters, Vector initialPosition)
         {
             this.dna = dna;
-            this.Radius = dna.Gene * 30;
-            this.maxSpeed = 10 * (1 - dna.Gene);
+            this.Radius = dna.Genes[RadiusIndex] * 30;
+            this.maxSpeed = 10 * (1 - dna.Genes[SpeedIndex]);
 
             this.parameters = parameters;
 
@@ -49,18 +52,6 @@
             }
 
             return false;
-        }
-
-        public Bloop Reproduce()
-        {
-            Dna childDna = dna.Copy();
-
-            if (Helpers.EventOccurs(this.parameters.MutationRate))
-            {
-                childDna.Mutate();
-            }
-
-            return new Bloop(childDna, this.parameters, this.Location);
         }
     }
 }

@@ -1,27 +1,29 @@
 ﻿namespace Bloops
 {
-    class Dna
+    public class Dna
     {
-        private Dna(double gene)
+        private readonly double[] genes;
+
+        private Dna(double[] genes)
         {
-            this.Gene = gene;
+            this.genes = genes;
         }
 
-        public double Gene { get; private set; }
-
-        public static Dna Random()
+        public double[] Genes
         {
-            return new Dna(Helpers.NextRandom(0, 1));
+            get { return this.genes; }
         }
 
-        public Dna Copy()
+        public static Dna Random(int numberOfGenes)
         {
-            return new Dna(this.Gene);
+            var genes = Helpers.Repeat(() => Helpers.NextRandom(0, 1), numberOfGenes);
+
+            return new Dna(genes);
         }
 
-        public void Mutate()
+        public Dna Clone()
         {
-            this.Gene = Helpers.NextRandom(0, 1);
+            return new Dna(this.genes);
         }
     }
 }
