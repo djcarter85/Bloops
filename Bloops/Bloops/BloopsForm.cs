@@ -24,7 +24,8 @@
                 Parameters parameters = new Parameters(
                     (int)this.bloopsUpDown.Value,
                     (int)this.foodUpDown.Value,
-                    (double)this.mutationRateUpDown.Value);
+                    (double)this.mutationRateUpDown.Value,
+                    (int)this.ticksPerGenerationUpDown.Value);
 
                 this.world = new World(parameters);
 
@@ -37,6 +38,7 @@
                 this.bloopsUpDown.Enabled =
                     this.foodUpDown.Enabled =
                     this.mutationRateUpDown.Enabled =
+                    this.ticksPerGenerationUpDown.Enabled =
                     false;
             }
             else if (this.running)

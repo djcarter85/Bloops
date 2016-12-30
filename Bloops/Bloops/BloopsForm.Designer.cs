@@ -32,6 +32,7 @@
             System.Windows.Forms.Label bloopNumberLabel;
             System.Windows.Forms.Label foodLabel;
             System.Windows.Forms.Label mutationRateLabel;
+            System.Windows.Forms.Label ticksPerGenerationLabel;
             this.map = new System.Windows.Forms.PictureBox();
             this.timer = new System.Windows.Forms.Timer(this.components);
             this.startButton = new System.Windows.Forms.Button();
@@ -40,13 +41,16 @@
             this.foodUpDown = new System.Windows.Forms.NumericUpDown();
             this.mutationRateUpDown = new System.Windows.Forms.NumericUpDown();
             this.stepButton = new System.Windows.Forms.Button();
+            this.ticksPerGenerationUpDown = new System.Windows.Forms.NumericUpDown();
             bloopNumberLabel = new System.Windows.Forms.Label();
             foodLabel = new System.Windows.Forms.Label();
             mutationRateLabel = new System.Windows.Forms.Label();
+            ticksPerGenerationLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.map)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bloopsUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.foodUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mutationRateUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ticksPerGenerationUpDown)).BeginInit();
             this.SuspendLayout();
             // 
             // bloopNumberLabel
@@ -168,12 +172,45 @@
             this.stepButton.Visible = false;
             this.stepButton.Click += new System.EventHandler(this.StepButton_Click);
             // 
+            // ticksPerGenerationUpDown
+            // 
+            this.ticksPerGenerationUpDown.Location = new System.Drawing.Point(15, 415);
+            this.ticksPerGenerationUpDown.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.ticksPerGenerationUpDown.Minimum = new decimal(new int[] {
+            100,
+            0,
+            0,
+            0});
+            this.ticksPerGenerationUpDown.Name = "ticksPerGenerationUpDown";
+            this.ticksPerGenerationUpDown.Size = new System.Drawing.Size(76, 22);
+            this.ticksPerGenerationUpDown.TabIndex = 20;
+            this.ticksPerGenerationUpDown.Value = new decimal(new int[] {
+            500,
+            0,
+            0,
+            0});
+            // 
+            // ticksPerGenerationLabel
+            // 
+            ticksPerGenerationLabel.AutoSize = true;
+            ticksPerGenerationLabel.Location = new System.Drawing.Point(12, 395);
+            ticksPerGenerationLabel.Name = "ticksPerGenerationLabel";
+            ticksPerGenerationLabel.Size = new System.Drawing.Size(142, 17);
+            ticksPerGenerationLabel.TabIndex = 19;
+            ticksPerGenerationLabel.Text = "Ticks per generation:";
+            // 
             // BloopsForm
             // 
             this.AcceptButton = this.startButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(968, 600);
+            this.Controls.Add(this.ticksPerGenerationUpDown);
+            this.Controls.Add(ticksPerGenerationLabel);
             this.Controls.Add(this.stepButton);
             this.Controls.Add(this.mutationRateUpDown);
             this.Controls.Add(mutationRateLabel);
@@ -190,6 +227,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.bloopsUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.foodUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mutationRateUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ticksPerGenerationUpDown)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -205,6 +243,7 @@
         private System.Windows.Forms.NumericUpDown foodUpDown;
         private System.Windows.Forms.NumericUpDown mutationRateUpDown;
         private System.Windows.Forms.Button stepButton;
+        private System.Windows.Forms.NumericUpDown ticksPerGenerationUpDown;
     }
 }
 

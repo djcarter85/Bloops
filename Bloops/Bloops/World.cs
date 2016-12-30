@@ -12,8 +12,6 @@
         private const int MinSize = 2;
         private const int MaxSize = 30;
 
-        private const int GenerationTicks = 1000;
-
         private List<Bloop> bloops;
         private List<Vector> foods;
 
@@ -64,7 +62,7 @@
 
         public void Tick()
         {
-            if (this.Ticks > GenerationTicks)
+            if (this.Ticks > this.parameters.TicksPerGeneration)
             {
                 this.Generation++;
                 this.Ticks = 0;
