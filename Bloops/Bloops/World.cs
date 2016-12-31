@@ -1,10 +1,9 @@
 ﻿namespace Bloops
 {
-    using System;
     using System.Collections.Generic;
     using System.Linq;
 
-    class World
+    public class World
     {
         public const int Width = 250;
         public const int Height = 250;
@@ -14,6 +13,8 @@
 
         private List<Bloop> bloops;
         private List<Vector> foods;
+
+        private readonly List<GenerationResult> results = new List<GenerationResult>();
 
         private readonly Parameters parameters;
 
@@ -65,10 +66,22 @@
             get { return this.bloops.Select(b => b.FoodEaten).Average(); }
         }
 
+        public IEnumerable<GenerationResult> Results
+        {
+            get { return this.results; }
+        }
+
         public void Tick()
         {
             if (this.Ticks > this.parameters.TicksPerGeneration)
             {
+                this.results.Add(new GenerationResult(
+                    this.Generation,
+                    this.MaxFoodEaten,
+                    this.MeanFoodEaten,
+                    this.MeanRadius,
+                    this.MeanMaxSpeed));
+
                 this.Generation++;
                 this.Ticks = 0;
 

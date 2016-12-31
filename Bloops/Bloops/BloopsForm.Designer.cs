@@ -42,6 +42,7 @@
             this.mutationRateUpDown = new System.Windows.Forms.NumericUpDown();
             this.stepButton = new System.Windows.Forms.Button();
             this.ticksPerGenerationUpDown = new System.Windows.Forms.NumericUpDown();
+            this.resultsTextBox = new System.Windows.Forms.TextBox();
             bloopNumberLabel = new System.Windows.Forms.Label();
             foodLabel = new System.Windows.Forms.Label();
             mutationRateLabel = new System.Windows.Forms.Label();
@@ -79,6 +80,15 @@
             mutationRateLabel.Size = new System.Drawing.Size(95, 17);
             mutationRateLabel.TabIndex = 10;
             mutationRateLabel.Text = "Mutation rate:";
+            // 
+            // ticksPerGenerationLabel
+            // 
+            ticksPerGenerationLabel.AutoSize = true;
+            ticksPerGenerationLabel.Location = new System.Drawing.Point(12, 395);
+            ticksPerGenerationLabel.Name = "ticksPerGenerationLabel";
+            ticksPerGenerationLabel.Size = new System.Drawing.Size(142, 17);
+            ticksPerGenerationLabel.TabIndex = 19;
+            ticksPerGenerationLabel.Text = "Ticks per generation:";
             // 
             // map
             // 
@@ -194,21 +204,25 @@
             0,
             0});
             // 
-            // ticksPerGenerationLabel
+            // resultsTextBox
             // 
-            ticksPerGenerationLabel.AutoSize = true;
-            ticksPerGenerationLabel.Location = new System.Drawing.Point(12, 395);
-            ticksPerGenerationLabel.Name = "ticksPerGenerationLabel";
-            ticksPerGenerationLabel.Size = new System.Drawing.Size(142, 17);
-            ticksPerGenerationLabel.TabIndex = 19;
-            ticksPerGenerationLabel.Text = "Ticks per generation:";
+            this.resultsTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.resultsTextBox.Font = new System.Drawing.Font("Consolas", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.resultsTextBox.Location = new System.Drawing.Point(876, 12);
+            this.resultsTextBox.Multiline = true;
+            this.resultsTextBox.Name = "resultsTextBox";
+            this.resultsTextBox.Size = new System.Drawing.Size(505, 576);
+            this.resultsTextBox.TabIndex = 21;
             // 
             // BloopsForm
             // 
             this.AcceptButton = this.startButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(968, 600);
+            this.ClientSize = new System.Drawing.Size(1393, 600);
+            this.Controls.Add(this.resultsTextBox);
             this.Controls.Add(this.ticksPerGenerationUpDown);
             this.Controls.Add(ticksPerGenerationLabel);
             this.Controls.Add(this.stepButton);
@@ -244,6 +258,7 @@
         private System.Windows.Forms.NumericUpDown mutationRateUpDown;
         private System.Windows.Forms.Button stepButton;
         private System.Windows.Forms.NumericUpDown ticksPerGenerationUpDown;
+        private System.Windows.Forms.TextBox resultsTextBox;
     }
 }
 

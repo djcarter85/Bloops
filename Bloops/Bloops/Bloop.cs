@@ -1,6 +1,6 @@
 ﻿namespace Bloops
 {
-    class Bloop
+    public class Bloop
     {
         private const int RadiusIndex = 0;
         private const int SpeedIndex = 1;

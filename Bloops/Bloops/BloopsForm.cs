@@ -87,6 +87,26 @@
                 this.world.MeanFoodEaten,
                 this.world.MeanRadius,
                 this.world.MeanMaxSpeed);
+
+            this.resultsTextBox.Text = CreateResultsText();
+        }
+
+        private string CreateResultsText()
+        {
+            string resultsText = "Gen\tMax food\tMean food\tMean radius\tMean max speed\r\n";
+
+            foreach (var result in this.world.Results)
+            {
+                resultsText += result.GenerationIndex + "\t";
+                resultsText += result.MaxFoodEaten + "\t";
+                resultsText += result.MeanFoodEaten + "\t";
+                resultsText += result.MeanRadius + "\t";
+                resultsText += result.MeanMaxSpeed;
+
+                resultsText += "\r\n";
+            }
+
+            return resultsText;
         }
 
         private void Map_Paint(object sender, PaintEventArgs e)

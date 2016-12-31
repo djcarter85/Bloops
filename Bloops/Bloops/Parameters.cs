@@ -1,6 +1,6 @@
 ﻿namespace Bloops
 {
-    class Parameters
+    public class Parameters
     {
         private readonly int startingBloops;
         private readonly int numFood;

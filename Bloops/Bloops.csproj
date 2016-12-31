@@ -53,6 +53,7 @@
     <Compile Include="Bloops\BloopsForm.Designer.cs">
       <DependentUpon>BloopsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Bloops\GenerationResult.cs" />
     <Compile Include="Bloops\World.cs" />
     <Compile Include="Dna.cs" />
     <Compile Include="Helpers.cs" />
