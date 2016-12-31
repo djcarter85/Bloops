@@ -1,6 +1,6 @@
 ﻿namespace Bloops
 {
-    interface IActivator
+    public interface IActivator
     {
         double Activate(double number);
     }

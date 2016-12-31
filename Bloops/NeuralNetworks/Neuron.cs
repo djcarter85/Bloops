@@ -4,7 +4,7 @@
     using System.Collections.Generic;
     using System.Linq;
 
-    class Neuron
+    public class Neuron
     {
         private static readonly IActivator activator = new Sigmoid();
 

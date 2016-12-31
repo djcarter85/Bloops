@@ -4,15 +4,18 @@
     using System.Collections.Generic;
     using System.Linq;
 
-    class NeuralNetwork
+    public class NeuralNetwork
     {
-        private IEnumerable<NeuronLayer> layers;
+        private readonly NeuralDna dna;
+        private readonly int numInputs;
+        private readonly int[] layerNums;
+        private readonly IEnumerable<NeuronLayer> layers;
 
         public NeuralNetwork(NeuralDna dna, int numInputs, params int[] layerNums)
         {
-            this.Dna = dna;
-            this.NumInputs = numInputs;
-            this.LayerNums = layerNums;
+            this.dna = dna;
+            this.numInputs = numInputs;
+            this.layerNums = layerNums;
 
             Queue<double> genes = new Queue<double>(dna.Genes);
             List<NeuronLayer> layers = new List<NeuronLayer>();
@@ -33,9 +36,20 @@
             this.layers = layers;
         }
 
-        public NeuralDna Dna { get; private set; }
-        public int NumInputs { get; private set; }
-        public int[] LayerNums { get; private set; }
+        public NeuralDna Dna
+        {
+            get { return this.dna; }
+        }
+
+        public int NumInputs
+        {
+            get { return this.numInputs; }
+        }
+
+        public int[] LayerNums
+        {
+            get { return this.layerNums; }
+        }
 
         public IEnumerable<NeuronLayer> Layers
         {

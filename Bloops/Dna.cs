@@ -23,11 +23,6 @@
             return new Dna(genes);
         }
 
-        public Dna Clone()
-        {
-            return new Dna(this.genes);
-        }
-
         public Dna Crossover(Dna otherDna)
         {
             var numberOfGenes = this.genes.Length;

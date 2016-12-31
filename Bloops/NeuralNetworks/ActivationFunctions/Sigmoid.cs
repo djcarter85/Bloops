@@ -2,7 +2,7 @@
 {
     using System;
 
-    class Sigmoid : IActivator
+    public class Sigmoid : IActivator
     {
         public double Activate(double number)
         {

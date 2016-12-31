@@ -3,7 +3,7 @@
     using System.Collections.Generic;
     using System.Linq;
 
-    class XorEvolver
+    public class XorEvolver
     {
         private const double MutationRate = 0.01;
         private const int PopulationSize = 100;
@@ -15,7 +15,8 @@
         {
             this.fitnessTester = fitnessTester;
             IEnumerable<NeuralNetwork> networks = Helpers.Repeat(
-                () => new NeuralNetwork(NeuralDna.Random(-1, 1, 9), 2, 2, 1), PopulationSize);
+                () => new NeuralNetwork(NeuralDna.Random(9), 2, 2, 1),
+                PopulationSize);
             this.population = networks.ToDictionary(nn => nn, nn => this.fitnessTester.Fitness(nn));
         }
 

@@ -1,45 +1,45 @@
 ﻿namespace Bloops
 {
-    class NeuralDna
+    public class NeuralDna
     {
-        private double min;
-        private double max;
+        private double[] genes;
 
-        public NeuralDna(double[] genes, double min, double max)
+        public NeuralDna(double[] genes)
         {
-            this.Genes = genes;
-            this.min = min;
-            this.max = max;
+            this.genes = genes;
         }
 
-        public double[] Genes { get; private set; }
-
-        public static NeuralDna Random(double min, double max, int geneCount)
+        public double[] Genes
         {
-            return new NeuralDna(Helpers.Repeat(() => Helpers.NextDouble(min, max), geneCount), min, max);
+            get { return this.genes; }
+        }
+
+        public static NeuralDna Random(int geneCount)
+        {
+            return new NeuralDna(Helpers.Repeat(() => Helpers.NextDouble(-1, 1), geneCount));
         }
 
         public NeuralDna Crossover(NeuralDna partner)
         {
-            int crossoverPoint = Helpers.NextInt(0, this.Genes.Length);
+            int crossoverPoint = Helpers.NextInt(0, this.genes.Length);
 
-            double[] newGenes = new double[this.Genes.Length];
+            double[] newGenes = new double[this.genes.Length];
 
-            for (int i = 0; i < this.Genes.Length; i++)
+            for (int i = 0; i < this.genes.Length; i++)
             {
-                newGenes[i] = i < crossoverPoint ? this.Genes[i] : partner.Genes[i];
+                newGenes[i] = i < crossoverPoint ? this.genes[i] : partner.genes[i];
             }
 
-            return new NeuralDna(newGenes, this.min, this.max);
+            return new NeuralDna(newGenes);
         }
 
         public void Mutate(double mutationRate)
         {
-            for (int i = 0; i < this.Genes.Length; i++)
+            for (int i = 0; i < this.genes.Length; i++)
             {
                 if (Helpers.EventOccurs(mutationRate))
                 {
-                    this.Genes[i] = Helpers.NextDouble(this.min, this.max);
+                    this.genes[i] = Helpers.NextDouble(-1, 1);
                 }
             }
         }

@@ -4,7 +4,7 @@
     using System.Collections.Generic;
     using System.Linq;
 
-    class XorTester : IFitnessTester
+    public class XorTester : IFitnessTester
     {
         public double Fitness(NeuralNetwork network)
         {

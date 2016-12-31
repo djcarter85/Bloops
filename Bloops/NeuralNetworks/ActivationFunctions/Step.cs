@@ -1,6 +1,6 @@
 ﻿namespace Bloops
 {
-    class Step : IActivator
+    public class Step : IActivator
     {
         private double min;
         private double max;

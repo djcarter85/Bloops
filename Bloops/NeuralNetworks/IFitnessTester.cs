@@ -1,6 +1,6 @@
 ﻿namespace Bloops
 {
-    interface IFitnessTester
+    public interface IFitnessTester
     {
         double Fitness(NeuralNetwork network);
     }

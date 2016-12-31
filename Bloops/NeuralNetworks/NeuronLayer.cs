@@ -3,7 +3,7 @@
     using System.Collections.Generic;
     using System.Linq;
 
-    class NeuronLayer
+    public class NeuronLayer
     {
         private IEnumerable<Neuron> neurons;
 
